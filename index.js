@@ -1,7 +1,7 @@
-'use strict'
+"use strict";
 
 var human = {};
-human.name = 'Tony';
+human.name = "Tony";
 human.age = 42;
 console.log(human);
 console.log(human.name);
@@ -78,7 +78,6 @@ console.log(human);
 // heading.textContent = 'Tony'
 // heading.style.color = '#6B5D8D'
 
-
 // setTimeout(() => {
 //   addStylesTo(heading)
 // }, 2500)
@@ -89,8 +88,6 @@ console.log(human);
 //   node.style.textAlign = 'center'
 //   node.style.backgroundColor = '#262626'
 // }
-
-
 
 // const delay = (wait = 1000) => {
 //   const promise = new Promise((resolve, reject) => {
@@ -218,7 +215,6 @@ console.log(human);
 // const index = cars.indexOf('F1')
 // console.log(cars[index])
 
-
 // let people = [
 //   {name: 'Tony', budget: 3800},
 //   {name: 'Elena', budget: 2700},
@@ -268,7 +264,6 @@ console.log(human);
 // const endItem = cars.pop()
 // console.log(endItem)
 // console.log(cars)
-
 
 // function createMember(name) {
 //   return function(lastName) {
@@ -329,7 +324,6 @@ console.log(human);
 
 // sumAll2(2,4,6,8)
 
-
 // function hello() {
 //   const data = 'World'
 //   console.log(`Hello, ${data}!`)
@@ -347,8 +341,6 @@ console.log(human);
 // console.log(typeof hello2);
 
 // console.dir(hello)
-
-
 
 // let counter = 0
 
@@ -394,4 +386,3 @@ console.log(human);
 // person.goGo = true
 // console.log(person)
 // console.log(person.goGo)
-
