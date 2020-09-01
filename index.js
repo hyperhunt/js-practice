@@ -1,12 +1,22 @@
 "use strict";
 
-var human = {};
-human.name = "Tony";
-human.age = 42;
-console.log(human);
-console.log(human.name);
-delete human.age;
-console.log(human);
+let colors = ["Red", "Green", "Blue"];
+console.log(colors.length);
+console.log(colors[0]);
+
+colors.forEach((item, index) => {
+  console.log(item, index);
+});
+
+colors.indexOf("\nBlue");
+
+// var human = {};
+// human.name = "Tony";
+// human.age = 42;
+// console.log(human);
+// console.log(human.name);
+// delete human.age;
+// console.log(human);
 
 // var array = [133,2,31,1];
 // var array2= ['bbb', 333, 'str', '%$#'];
