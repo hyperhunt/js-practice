@@ -108,3 +108,51 @@ const user = {
 console.log(user);
 user.name = 'Hunt'
 console.log(user);
+
+console.clear();
+
+let value;
+
+// Number to String
+value = String(10);
+value = String(10+40);
+value = (40).toString();
+
+// Boolean to String
+value = String(true)
+value = String(false)
+
+// Array to String
+value = String([1,2,3])
+
+// Object to String
+value = String({ name: 'Tony', age: 42 })
+
+value = 30 + ''
+value = 30 - '1'
+value = 30 - 'number'
+
+value = true + 10; // true 1, false 0
+
+// String to Number
+value = Number('23')
+value = Number(true) // 1
+value = Number(null) // 0
+value = Number([1,2,3]) // Nan
+
+value = parseInt('200char') // 200
+value = parseFloat('20.20float') // 20.2
+
+// Boolean
+value = Boolean('') // false
+value = Boolean(' ') // true
+value = Boolean('string') // true
+value = Boolean('0') // false
+value = Boolean('42') // true
+value = Boolean(undefined) // false
+value = Boolean(null) // false
+value = Boolean({}) // true
+value = Boolean([]) // true
+
+console.log(value);
+console.log(typeof value);
