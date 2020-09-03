@@ -60,4 +60,10 @@ str = `
 </ul>
 `;
 
-document.body.innerHTML = str;
+function randMy() {
+    return str;
+};
+
+setInterval(() => {
+    document.body.innerHTML = randMy();
+});
