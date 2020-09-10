@@ -193,6 +193,13 @@
 // }
 // function () {}
 
+// let generateNumber = (function (min = 0, max = 11) {
+//   for (var a = [0, 1, 2, 3, 4], i = a.length; i--; ) {
+//     var random = a.splice(Math.floor(Math.random() * (i + 1)), 1)[0];
+//     return random;
+//   }
+// })();
+
 let countWinLose = {
   win: 0,
   lose: 0,
@@ -209,12 +216,6 @@ function winnerCheck(check) {
 }
 
 function guessNumber(num) {
-  // if (typeof num === typeof Number()) {
-  //   console.log(true);
-  // } else {
-  //   console.log(false);
-  // }
-  // console.log(num);
   switch (typeof num) {
     case typeof Number():
       0 <= num && num <= 10
@@ -236,15 +237,6 @@ function generateNumber(min = 0, max = 11) {
 }
 
 for (let index = 0; index < 10; index++) {
-  // guessNumber(generateNumber);
-  // guessNumber(generateNumber());
   guessNumber(generateNumber());
 }
 console.log(countWinLose);
-
-// let generateNumber = (function (min = 0, max = 11) {
-//   for (var a = [0, 1, 2, 3, 4], i = a.length; i--; ) {
-//     var random = a.splice(Math.floor(Math.random() * (i + 1)), 1)[0];
-//     return random;
-//   }
-// })();
