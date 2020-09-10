@@ -151,3 +151,25 @@
 // Create function which take arguments string, number, null, undefined and
 // return trim char to unicode
 // Example: getCodeStringFromText('hello') // '104 101 108 108 111'
+// Method to use: charCodeAt() and trim()
+
+// function getCodeStringFromText(data) {
+//   this.str = String(data).trim().replace(/\s+/g, ''); // Delete space
+
+//   this.str = (function (cmd) {
+//     let res = '';
+//     for (const iterator of cmd) {
+//       res = res.concat(iterator.charCodeAt(), ' ');
+//     }
+//     return res;
+//   })(this.str);
+//   console.log(this.str);
+// }
+
+// console.log(getCodeStringFromText(' T e x   t '));
+// getCodeStringFromText(' T e x   t ');
+// getCodeStringFromText(' h e l l o ');
+// getCodeStringFromText(42);
+// getCodeStringFromText(null);
+// getCodeStringFromText(undefined);
+// getCodeStringFromText();
