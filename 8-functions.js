@@ -181,6 +181,7 @@
 // return new Error('Please provide a valid number.');
 // 'You win!'
 // 'You are lose, your number is X, the random number is Y
+// parseInt((Math.random() * 9 + 1).toFixed(0));
 
 // Generate number
 // for (let index = 0; index < 30; index++) {
@@ -192,14 +193,19 @@
 // }
 // function () {}
 
+let countWinLose = {
+  win: 0,
+  lose: 0,
+};
+
 function winnerCheck(check) {
-  let count = ''
   let robot = generateNumber();
   check == robot
-    ? console.log('You winner!')
-    : console.log(
+    ? (console.log('You winner!'), (countWinLose.win += 1))
+    : (console.log(
         `You are lose, your number is ${check}, the random number is ${robot}`,
-      );
+      ),
+      (countWinLose.lose += 1));
 }
 
 function guessNumber(num) {
@@ -234,6 +240,7 @@ for (let index = 0; index < 10; index++) {
   // guessNumber(generateNumber());
   guessNumber(generateNumber());
 }
+console.log(countWinLose);
 
 // let generateNumber = (function (min = 0, max = 11) {
 //   for (var a = [0, 1, 2, 3, 4], i = a.length; i--; ) {
