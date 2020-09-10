@@ -110,6 +110,17 @@
 //   return `${this.str.split('').reverse().join('')}`;
 // }
 
+// function reverseString(str) {
+//   this.str = String(str);
+//   return `${this.str.split('').reverse().join('')}`;
+// }
+
+// console.log(reverseString('Test')); // eseT
+// console.log(reverseString('')); // ''
+// console.log(reverseString(null)); // llun
+// console.log(reverseString(undefined)); // denifednu
+// console.log(reverseString()); // denifednu
+
 // let data = 'I want \
 // to be a professional \
 // front-end \
