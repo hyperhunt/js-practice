@@ -173,3 +173,71 @@
 // getCodeStringFromText(null);
 // getCodeStringFromText(undefined);
 // getCodeStringFromText();
+
+// TODO: Practical task 4: Create function guess the number.
+// The program accepts a number from 1 to 10
+// Check value === number, and range 0-10
+// return new Error('Please provide number in range 0-10.');
+// return new Error('Please provide a valid number.');
+// 'You win!'
+// 'You are lose, your number is X, the random number is Y
+
+// Generate number
+// for (let index = 0; index < 30; index++) {
+//   guessNumber(
+//     (function (min = 0, max = 11) {
+//       return Math.floor(Math.random() * (max - min)) + min;
+//     })(),
+//   );
+// }
+// function () {}
+
+function winnerCheck(check) {
+  let count = ''
+  let robot = generateNumber();
+  check == robot
+    ? console.log('You winner!')
+    : console.log(
+        `You are lose, your number is ${check}, the random number is ${robot}`,
+      );
+}
+
+function guessNumber(num) {
+  // if (typeof num === typeof Number()) {
+  //   console.log(true);
+  // } else {
+  //   console.log(false);
+  // }
+  // console.log(num);
+  switch (typeof num) {
+    case typeof Number():
+      0 <= num && num <= 10
+        ? winnerCheck(num)
+        : console.log('Please provide number in range 0-10.');
+      break;
+    case typeof String():
+      console.log('Please provide number, not string.');
+      break;
+    default:
+      console.log('Please provide a valid number.');
+      break;
+  }
+}
+
+// Generate random Number in range 0-10
+function generateNumber(min = 0, max = 11) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
+for (let index = 0; index < 10; index++) {
+  // guessNumber(generateNumber);
+  // guessNumber(generateNumber());
+  guessNumber(generateNumber());
+}
+
+// let generateNumber = (function (min = 0, max = 11) {
+//   for (var a = [0, 1, 2, 3, 4], i = a.length; i--; ) {
+//     var random = a.splice(Math.floor(Math.random() * (i + 1)), 1)[0];
+//     return random;
+//   }
+// })();
