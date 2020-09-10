@@ -99,8 +99,23 @@
 //   }
 // }
 
+// function multiply() {
+//   let element = 1;
+//   if (arguments.length != 0) {
+//     for (let index = 0; index < arguments.length; index++) {
+//       element = element * arguments[index];
+//     }
+//     for (const iterator of arguments) {
+//       element = element * iterator;
+//     }
+//     return element;
+//   } else {
+//     return (element = 0);
+//   }
+// }
+
 // // let res = multiply(1, 2, 3);
-// let res = multiply(2, 3, 10, 4, 5, 6, 8, 23, 4);
+// let res = multiply(2, 3, 10);
 // console.log(res);
 
 // // TODO: Practical task 2: Create function whuch take string and return reverse string.
@@ -131,3 +146,8 @@
 // let data = 'I want to be a professional front-end web developer!';
 // let res = reverseString(data);
 // console.log(res);
+
+// TODO: Practical task 3: Functions
+// Create function which take arguments string, number, null, undefined and
+// return trim char to unicode
+// Example: getCodeStringFromText('hello') // '104 101 108 108 111'
