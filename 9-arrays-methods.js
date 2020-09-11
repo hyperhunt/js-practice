@@ -1,6 +1,6 @@
 // Arrays methods
 
-const numArr = [1, 32, 3, 4, 5];
+// const numArr = [1, 32, 3, 4, 5];
 // let value;
 // value = numArr.length;
 
@@ -26,7 +26,7 @@ const numArr = [1, 32, 3, 4, 5];
 // value = numArr.concat(numArr);
 
 // join - creates and returns a new string by concatenating all of the elements in an array
-// joint - array arguments in string
+// join - array arguments in string
 // value = numArr.join('#');
 
 // split - divides a String into an ordered list of substrings
@@ -37,3 +37,40 @@ const numArr = [1, 32, 3, 4, 5];
 
 // value = 'Hello'.split('')[0]; // return element of index 0 - 'H'
 // console.log(value);
+
+// TODO: Practical task 5
+// Create func return array from 1 to n
+// gerArray(10); // [1,2,3,4,5,6,7,8,9,10]
+
+// const numArr = [];
+
+// function getArray(num) {
+//   for (let index = 1; index <= num; index++) {
+//     numArr.push(index);
+//   }
+//   console.log(numArr);
+// }
+
+// getArray(5);
+
+// TODO: Practical task 6
+// Create the func takes an array and terun new array wthis duplicated arguments
+
+// function doubleArray(arr) {
+//   arr = arr.concat(arr);
+//   console.log(arr);
+// }
+
+// doubleArray([1, 2, 3]);
+
+// TODO: Practical task 7
+// Replace first element in witch takes array
+
+// function chancgeCollection() {
+//   for (let iterator = 0; iterator < arguments.length; iterator++) {
+//     arguments[iterator].shift();
+//   }
+//   console.log(arguments);
+// }
+
+// chancgeCollection([1, 2, 3], ['a', 'b', 'c']);
