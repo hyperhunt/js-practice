@@ -66,11 +66,71 @@
 // TODO: Practical task 7
 // Replace first element in witch takes array
 
-// function chancgeCollection() {
+// function changeCollection() {
 //   for (let iterator = 0; iterator < arguments.length; iterator++) {
 //     arguments[iterator].shift();
 //   }
 //   console.log(arguments);
 // }
 
-// chancgeCollection([1, 2, 3], ['a', 'b', 'c']);
+// chancgeColchangeCollectionlection
+//     if (Array.isArray(arguments[arr])) {
+//       arguments[arr].splice(0, 1);
+//       res.push(arguments[arr]);
+//     }
+//   }
+//   return res;
+// }
+
+// console.log(changeCollection([1, 2, 3], ['a', 'b', 'c']));
+
+// TODO: Practical task 8
+// Filtering an array
+
+const users = [
+  {
+    _id: '3e36b779dc76fe3db02adc32',
+    balance: '$8,955.65',
+    picture: 'http://hyperhunt.dev/32x32',
+    age: 42,
+    name: 'Tony Hunt',
+    gender: 'male',
+  },
+  {
+    _id: '5e36b779dc76fe3db02adc32',
+    balance: '$1,955.65',
+    picture: 'http://hyperhunt.dev/32x32',
+    // age: 33,
+    name: 'Berg Zimmerman',
+    gender: 'male',
+  },
+  {
+    _id: '5e36b779d117774176f90e0b',
+    balance: '$3,776.14',
+    picture: 'http://hyperhunt.dev/32x32',
+    age: 37,
+    name: 'Deann Winters',
+    gender: 'female',
+  },
+  {
+    _id: '5e36b779daf6e455ec54cf45',
+    balance: '$3,424.84',
+    picture: 'http://hyperhunt.dev/32x32',
+    age: 36,
+    name: 'Kari Waters',
+    gender: 'female',
+  },
+];
+
+(function (obj, method, param) {
+  // const tmp = [{ _id: '', balance: '', age: '', name: '', gender: '' }];
+  // console.log(obj, method, age);
+
+  for (const key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      if (obj[key][method] == param) {
+        console.log(obj[key]);
+      }
+    }
+  }
+})(users, 'age', 42);
