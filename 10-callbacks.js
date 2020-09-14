@@ -457,35 +457,106 @@
 
 // TODO: checkPermission with callBack
 
-let users = [
-  { name: 'Tony', isadmin: true },
-  { name: 'Hyper', isadmin: false },
-];
+// let users = [
+//   { name: 'Tony', isadmin: true },
+//   { name: 'Hyper', isadmin: false },
+// ];
 
-function checkAdmin() {
-  return function (nick, fn) {
-    let result;
-    setTimeout(function () {
-      for (const iterator of users) {
-        if (iterator.name == nick) {
-          if (iterator.isadmin) {
-            fn(nick, 'isAdmin');
-          } else {
-            fn(nick, 'NotAdmin');
-          }
-        }
-      }
-      return result;
-    }, 2000);
-  };
+// function checkAdmin() {
+//   return function (nick, fn) {
+//     let result;
+//     setTimeout(function () {
+//       for (const iterator of users) {
+//         if (iterator.name == nick) {
+//           if (iterator.isadmin) {
+//             fn(nick, 'isAdmin');
+//           } else {
+//             fn(nick, 'NotAdmin');
+//           }
+//         }
+//       }
+//       return result;
+//     }, 2000);
+//   };
+// }
+
+// function greeting(nick, msg) {
+//   console.log(`${nick} - ${msg}`);
+// }
+
+// let check = checkAdmin();
+// console.log('T1');
+// check('Hyper', greeting);
+// console.log('T2');
+// check('Tony', greeting);
+
+// === ===  === ===  === ===  === ===  === ===  === ===  === ===  === ===
+// Map() Filter()
+
+// Variant 1
+// const arr = [1, 2, 3, 4, 5];
+// const arr2 = [];
+// for (let i = 0; i < arr.length; i++) {
+//   arr2.push(arr[i] * 2);
+// }
+
+// Variant 2 with Map()
+
+// const arr = [1, 2, 3, 4, 5];
+// const arr2 = arr.map(function (item) {
+//   return item * 2;
+// });
+
+// console.log(arr);
+// console.log(arr2);
+
+// Variant 3 with toUpperCase() for words
+
+// const arr = ['Tony', 'Hyper', 'Hunt', 'Dev'];
+// const arr2 = arr.map(item => item.toUpperCase());
+
+// console.log(arr);
+// console.log(arr2);
+
+// Variant 4: array of old
+
+// const birthYear = [1975, 1997, 2002, 1995, 1985];
+// const ages = birthYear.map(item => 2020 - item);
+// console.log(ages);
+
+// Variant 5: Filter()
+
+// const persons = [
+//   { name: 'Peter', age: 16 },
+//   { name: 'Mark', age: 18 },
+//   { name: 'John', age: 27 },
+//   { name: 'Jane', age: 14 },
+//   { name: 'Tony', age: 24 },
+// ];
+// const fullAge = persons.filter(person => person.age > 18);
+// console.log(fullAge);
+
+// Variant 6: Reduce()
+
+// const arr = [5, 7, 1, 8, 4];
+// const sum = arr.reduce(function (value, currentValue) {
+//   return value + currentValue;
+// }, 10); // start value = 10
+// console.log(sum);
+
+// TODO Variant 7: Create new array with count char
+const strArray = ['JavaScript', 'Python', 'Vala', 'Go', 'C'];
+// const lenArray = strArray.map(item => item.length);
+// console.log(lenArray);
+
+function mapForEach(arr, fn) {
+  const newArray = [];
+  for (let i = 0; i < arr.length; i++) {
+    newArray.push(fn(arr[i]));
+  }
+  return newArray;
 }
-
-function greeting(nick, msg) {
-  console.log(`${nick} - ${msg}`);
-}
-
-let check = checkAdmin();
-console.log('T1');
-check('Hyper', greeting);
-console.log('T2');
-check('Tony', greeting);
+const lenArray = mapForEach(strArray, function (item) {
+  return item.length;
+}); // prints [ 10, 6, 3, 4, 1 ]
+console.log(lenArray);
