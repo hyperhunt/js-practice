@@ -175,28 +175,28 @@
 //   };
 // })();
 
-function once(fn, context) {
-  var result;
-  return function () {
-    if (fn) {
-      result = fn.apply(context || this, arguments);
-      fn = null;
-    } else {
-      result = 'Once';
-      console.log(result);
-      return result;
-    }
-    return result;
-  };
-}
+// function once(fn, context) {
+//   var result;
+//   return function () {
+//     if (fn) {
+//       result = fn.apply(context || this, arguments);
+//       fn = null;
+//     } else {
+//       result = 'Once';
+//       console.log(result);
+//       return result;
+//     }
+//     return result;
+//   };
+// }
 
-let res = once(function () {
-  console.log('asd');
-});
+// let res = once(function () {
+//   console.log('asd');
+// });
 
-res();
-res();
-res();
+// res();
+// res();
+// res();
 
 // function log(level, message) {}
 
@@ -239,3 +239,58 @@ res();
 // drinkSelection('coffee');
 // drinkSelection(42);
 // drinkSelection();
+
+// function first() {
+//   setTimeout(function () {
+//     console.log('First');
+//   }, 2000);
+// }
+// function second() {
+//   console.log('Second');
+// }
+
+// first();
+// second();
+
+// function doHomework(subject, callback) {
+//   console.log(`Starting my ${subject} home work.`);
+//   callback();
+// }
+
+// // doHomework('JS', function () {
+// //   console.log('Finished my homework.');
+// // });
+
+// function alertFinished() {
+//   console.log('Finished my homework.');
+// }
+
+// doHomework('JS', alertFinished);
+
+// performance from the perf_hooks module (available in node 8.5+).
+const { performance } = require('perf_hooks');
+// var t0 = performance.now();
+let timers = {};
+
+function timeDecorator(f, timer) {
+  return function () {
+    let start = performance.now();
+    let result = f.apply(this, arguments);
+
+    if (!timers[timer]) timers[timer] = 0;
+    timers[timer] += performance.now() - start;
+    // console.log(timers[timer]);
+    return result;
+  };
+}
+
+let fibonacci = function f(n) {
+  return n > 2 ? f(n - 1) + f(n - 2) : 1;
+};
+
+fibonacci = timeDecorator(fibonacci, 'fibo');
+
+console.log(fibonacci(10));
+console.log(timers.fibo + ' ms');
+console.log(fibonacci(20));
+console.log(timers.fibo + ' ms');
