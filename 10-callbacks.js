@@ -267,30 +267,161 @@
 
 // doHomework('JS', alertFinished);
 
+// TODO:performance.now()
 // performance from the perf_hooks module (available in node 8.5+).
-const { performance } = require('perf_hooks');
-// var t0 = performance.now();
-let timers = {};
+// const { performance } = require('perf_hooks');
+// let timers = {};
 
-function timeDecorator(f, timer) {
-  return function () {
-    let start = performance.now();
-    let result = f.apply(this, arguments);
+// function timeDecorator(f, timer) {
+//   return function () {
+//     let start = performance.now();
+//     let result = f.apply(this, arguments);
 
-    if (!timers[timer]) timers[timer] = 0;
-    timers[timer] += performance.now() - start;
-    // console.log(timers[timer]);
-    return result;
-  };
-}
+//     if (!timers[timer]) timers[timer] = 0;
+//     timers[timer] += performance.now() - start;
+//     // console.log(timers[timer]);
+//     return result;
+//   };
+// }
 
-let fibonacci = function f(n) {
-  return n > 2 ? f(n - 1) + f(n - 2) : 1;
-};
+// let fibonacci = function f(n) {
+//   return n > 2 ? f(n - 1) + f(n - 2) : 1;
+// };
 
-fibonacci = timeDecorator(fibonacci, 'fibo');
+// fibonacci = timeDecorator(fibonacci, 'fibo');
 
-console.log(fibonacci(10));
-console.log(timers.fibo + ' ms');
-console.log(fibonacci(20));
-console.log(timers.fibo + ' ms');
+// console.log(fibonacci(10));
+// console.log(timers.fibo + ' ms');
+// console.log(fibonacci(20));
+// console.log(timers.fibo + ' ms');
+
+// TODO: Check number typeof
+// https://learn.javascript.ru/decorators
+
+// function checkTypeNumber(value) {
+//   return typeof value == 'number';
+// }
+
+// function typeCheck(f, check) {
+//   return function () {
+//     for (let i = 0; i < arguments; i++) {
+//       if (!check[i](arguments[i])) {
+//         console.log('Correct: ' + i);
+//         return;
+//       }
+//     }
+//     return f.apply(this, arguments);
+//   };
+// }
+
+// function sum(a, b) {
+//   return a + b;
+// }
+
+// let result = typeCheck(sum, [checkTypeNumber, checkTypeNumber]);
+// console.log(result(1, 2));
+
+// function myFunction(event) {
+//   let on = event.getModifierState('CapsLock');
+//   return on;
+// }
+// myFunction();
+
+// console.log(on);
+
+// if (CapsLock === true) {
+//   window.addEventListener('keydown', function () {
+//     if (event.keyCode === 81) {
+//       screen.textContent += String.fromCharCode(81);
+//     }
+//   });
+// }
+
+// TODO: detect-whether-a-key-is-pressed-in-nodejs
+// if (CapsLock === false) {
+//   window.addEventListener('keydown', function () {
+//     if (event.keyCode === 81) {
+//       screen.textContent += String.fromCharCode(113);
+//     }
+//   });
+// }
+// const iohook = require('iohook');
+// iohook.on('keypress', event => {
+//   console.log(event.keychar);
+// });
+// iohook.start();
+
+// TODO: checkPermissionDecorator
+
+// function isAdmin() {
+//   const adminData = {
+//     tony: 'admin',
+//   };
+// }
+
+// function checkPermissionDecorator(saveCheck, adminCheck) {
+//   return function () {
+//     if (adminCheck[0] == 'tony') {
+//       console.log('Yes');
+//     } else {
+//       console.log('No');
+//     }
+//     return saveCheck;
+//   };
+// }
+
+// function saveData(data) {
+//   return `Data ${data} saved.`;
+// }
+
+// let result = saveData('Bitcoin');
+// console.log(result);
+
+// let save = checkPermissionDecorator(saveData, isAdmin);
+// console.log(save);
+
+// === ===  === ===  === ===  === ===  === ===  === ===  === ===  === ===
+
+// let users = {
+//   admin: ['tony', 'hyper'],
+//   user: ['dev', 'hunt'],
+// };
+
+// function checkAdmin(nameUser, checkUser) {
+//   // console.log('nameUser: ' + nameUser);
+//   // return function () {
+//   //   for (let i = 0; i < users.admin.length; i++) {
+//   //     if (users.admin[i] === nameUser) {
+//   //       let r = `U ${nameUser} is admin.`;
+//   //     }
+//   //   }
+//   //   return res;
+//   // };
+//   console.log(nameUser);
+//   console.log(checkUser.admin);//
+
+// sayings.set('dog', 'woof');
+// sayings.set('cat', 'meow');
+
+// console.log(sayings);
+
+// (function (name) {
+//   let users = [
+//     {
+//       name: 'Tony',
+//       isadmin: false,
+//     },
+//     {
+//       name: 'Hyper',
+//       isadmin: false,
+//     },
+//   ];
+
+//   for (const iterator of users) {
+//     if (iterator.name === name) {
+//       iterator.isadmin
+//         ? console.log(`${name} is admin`)
+//         : console.log(`${name} not admin`);
+//     }
+//   }
+// })('Tony');
