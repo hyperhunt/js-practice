@@ -1,4 +1,6 @@
 // Callbacks
+// https://medium.com/nuances-of-programming/%D0%BF%D0%BE%D0%B4%D1%80%D0%BE%D0%B1%D0%BD%D0%B5%D0%B5-%D0%BE-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F%D1%85-%D0%B2%D1%8B%D1%81%D1%88%D0%B5%D0%B3%D0%BE-%D0%BF%D0%BE%D1%80%D1%8F%D0%B4%D0%BA%D0%B0-2d94ace3e96c
+// https://medium.com/nuances-of-programming/%D0%B8%D0%B7%D1%83%D1%87%D0%B0%D0%B5%D0%BC-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%B8-%D0%B2%D1%8B%D1%81%D1%88%D0%B5%D0%B3%D0%BE-%D0%BF%D0%BE%D1%80%D1%8F%D0%B4%D0%BA%D0%B0-%D0%B2-javascript-c23daf53a5c0
 
 // function foo() {
 //   console.log('foo');
@@ -179,6 +181,10 @@ function once(fn, context) {
     if (fn) {
       result = fn.apply(context || this, arguments);
       fn = null;
+    } else {
+      result = 'Once';
+      console.log(result);
+      return result;
     }
     return result;
   };
@@ -191,3 +197,45 @@ let res = once(function () {
 res();
 res();
 res();
+
+// function log(level, message) {}
+
+// let logInfo = log.bind(null, 'Info');
+// let res = logInfo('message');
+// console.log(res);
+
+// const drinks = {
+//   vodka: "It's bad",
+//   beer: 'The right drink',
+//   coffee: 'Increases heart rate',
+//   milk: "It's good",
+//   '': 'Default message',
+// };
+
+// for (const iterator in drinks) {
+//   console.log(iterator, drinks[iterator]);
+// }
+
+// console.log(drinks['vodka']);
+// console.log(drinks.beer);
+
+// function drinkSelection(h2o) {
+//   switch (typeof h2o) {
+//     case typeof String():
+//       h2o == 'vodka' || h2o == 'beer'
+//         ? console.log('Что-то там вредит... Но от жизни тоже помирают.')
+//         : console.log('Напиток для настоящих М.');
+//       break;
+//     case typeof Number():
+//       console.log(`Введите название напитка, а не ${h2o}.`);
+//       break;
+//     default:
+//       console.log('Какой напиток предпочитаешь, бро?');
+//       break;
+//   }
+// }
+
+// drinkSelection('beer');
+// drinkSelection('coffee');
+// drinkSelection(42);
+// drinkSelection();
