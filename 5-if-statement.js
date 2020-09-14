@@ -91,8 +91,13 @@ if (value < 10) {
 let color = 'red1';
 
 switch (color) {
-    case 'red': console.log('case red'); break;
-    case 'green': console.log('case green'); break;
-    default: console.log('case empty');
+  case 'red':
+    console.log('case red');
+    break;
+  case 'green':
+    console.log('case green');
+    break;
+  default:
+    console.log('case empty');
 }
 
