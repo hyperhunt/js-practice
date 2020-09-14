@@ -425,3 +425,67 @@
 //     }
 //   }
 // })('Tony');
+
+// TODO: checkPermission with Decorator.
+// let users = [
+//   { name: 'Tony', isadmin: true, },
+//   { name: 'Hyper', isadmin: false, },
+// ];
+
+// function checkAdmin(nick, fn) {
+//   let result;
+//   for (const iterator of users) {
+//     if (iterator.name == nick) {
+//       if (iterator.isadmin) {
+//         fn(nick, 'isAdmin');
+//       } else {
+//         fn(nick, 'NotAdmin');
+//       }
+//     }
+//   }
+//   return result;
+// }
+
+// function greeting(nick, msg) {
+//   console.log(`${nick} - ${msg}`);
+// }
+
+// checkAdmin('Hyper', greeting);
+// checkAdmin('Tony', greeting);
+
+// === ===  === ===  === ===  === ===  === ===  === ===  === ===  === ===
+
+// TODO: checkPermission with callBack
+
+let users = [
+  { name: 'Tony', isadmin: true },
+  { name: 'Hyper', isadmin: false },
+];
+
+function checkAdmin() {
+  return function (nick, fn) {
+    let result;
+    setTimeout(function () {
+      for (const iterator of users) {
+        if (iterator.name == nick) {
+          if (iterator.isadmin) {
+            fn(nick, 'isAdmin');
+          } else {
+            fn(nick, 'NotAdmin');
+          }
+        }
+      }
+      return result;
+    }, 2000);
+  };
+}
+
+function greeting(nick, msg) {
+  console.log(`${nick} - ${msg}`);
+}
+
+let check = checkAdmin();
+console.log('T1');
+check('Hyper', greeting);
+console.log('T2');
+check('Tony', greeting);
