@@ -541,22 +541,41 @@
 // const arr = [5, 7, 1, 8, 4];
 // const sum = arr.reduce(function (value, currentValue) {
 //   return value + currentValue;
-// }, 10); // start value = 10
+// });
 // console.log(sum);
 
+// const nextId = ids =>
+//   ids.sort((prev, next) => prev - next).reduce((a, b) => a + (a === b), 0);
+
+// let r = nextId([0, 1, 3]);
+// console.log(r);
+
 // TODO Variant 7: Create new array with count char
-const strArray = ['JavaScript', 'Python', 'Vala', 'Go', 'C'];
-// const lenArray = strArray.map(item => item.length);
+// const strArray = ['JavaScript', 'Python', 'Vala', 'Go', 'C'];
+// // const lenArray = strArray.map(item => item.length);
+// // console.log(lenArray);
+
+// function mapForEach(arr, fn) {
+//   const newArray = [];
+//   for (let i = 0; i < arr.length; i++) {
+//     newArray.push(fn(arr[i]));
+//   }
+//   return newArray;
+// }
+// const lenArray = mapForEach(strArray, function (item) {
+//   return item.length;
+// }); // prints [ 10, 6, 3, 4, 1 ]
 // console.log(lenArray);
 
-function mapForEach(arr, fn) {
-  const newArray = [];
-  for (let i = 0; i < arr.length; i++) {
-    newArray.push(fn(arr[i]));
-  }
-  return newArray;
-}
-const lenArray = mapForEach(strArray, function (item) {
-  return item.length;
-}); // prints [ 10, 6, 3, 4, 1 ]
-console.log(lenArray);
+// TODO: Practical tast 9
+// Первая функция принимает массив и колбэк (одна для всех вызовов)
+// Вторая функция (колбэк) обрабатывает каждый элемент массива (для каждого вызова свой колбэк)
+// Первая функция возвращает строку "New value: " и результат обработки:
+//
+// firstFunc(['my', 'name', 'is', 'Tony'], handler1) // -> 'New value: MyNameIsTrinity'
+// firstFunc([10, 20, 30], handler2) // -> 'New value: 100, 200, 300'
+// fistFunc([{ age: 45, name: 'Hyper', }, { age: 42, name: 'Hunt' }], handler3)
+// -> 'New value: Hyper is 45, Hunt is 42
+// firstFunc(['abc', 123], handler4); // -> 'New value: cba, 321' invert string
+// SecondFunc() должна быть представлена функцией, которая принимает один агрумент
+// (каждый элемент массива) и возвращает результат его обработки
