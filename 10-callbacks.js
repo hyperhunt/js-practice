@@ -579,3 +579,31 @@
 // firstFunc(['abc', 123], handler4); // -> 'New value: cba, 321' invert string
 // SecondFunc() должна быть представлена функцией, которая принимает один агрумент
 // (каждый элемент массива) и возвращает результат его обработки
+
+function firstFunc(arr, fnHandler) {
+  return `New value: ${fnHandler(arr)}`;
+}
+
+function handler1(arr) {
+  let chArr = [];
+  for (let iterator of arr) {
+    chArr.push(iterator[0].toUpperCase() + iterator.slice(1, iterator.length));
+  }
+  return chArr.join('');
+}
+
+let r = firstFunc(['my', 'name', 'is', 'Tony'], handler1);
+console.log(r);
+
+let item = {
+  name: 'Intel core i7',
+  price: '100$',
+  discount: '15%',
+};
+
+if (item.discount) {
+  item.priceWithDiscount = parseFloat(item.price * item.discount);
+  console.log(item.priceWithDiscount);
+}
+
+console.log(typeof (item.discount && item.discount != NaN));
