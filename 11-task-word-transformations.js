@@ -72,10 +72,32 @@
 // Перед отправкой решения рекомендуем запустить тесты из раздела Тестирование,
 // они помогут поймать синтаксические ошибки и ошибки выполнения.
 
-// String methods: match, search
+// String methods: match(), search()
+// filter(), map()
 
-function lowerCase() {
-  const charMap = {};
+function lowerCase(dataToLow) {
+  // const letterUp = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'.split('');
+  // const letterLow = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'.split('');
+
+  const letterUp = 'АБВ'.split('');
+  const letterLow = 'абв'.split('');
+
+  let charMap = {};
+  for (let i = 0; i < letterUp.length; i++) {
+    charMap[letterUp[i]] = letterLow[i];
+  }
+  // console.log(charMap);
+  // console.log(charMap['А']);
+
+  console.log('Data: ' + dataToLow);
+  for (const i of dataToLow) {
+    console.log(typeof i);
+    console.log(typeof charMap[i]);
+    // if (i == charMap[i])
+    //   console.log('i: ' + i + ', letterLow: ' + letterLow[i]);
+  }
+
+  console.log('Result: ');
 }
 
 function getData(getLine) {
@@ -83,12 +105,6 @@ function getData(getLine) {
 }
 
 let line = 'ПрИвЕт пРикОл'.toLowerCase().split(' ');
-let line2 = 'ПрИвЕт пРикОл'(
-  // line = 'прикол прикот';
-  // console.log(line);
-  // let r = line.match(/[а-я\u0451]+/gi);
-  // console.log(r);
-  function () {
-    getData(line);
-  },
-)();
+let line2 = 'ПрИвЕт';
+// getData(line);
+lowerCase(line2);
