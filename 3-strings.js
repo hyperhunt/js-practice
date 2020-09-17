@@ -136,3 +136,26 @@
 // setInterval(() => {
 //     document.body.innerHTML = randMy();
 // });
+
+// let r = 'my code best of the best'
+//   .split(' ')
+//   .reduce(function (value, currentValue) {
+//     value = value[0].toUpperCase() + value.slice(1, value.length);
+
+//     currentValue =
+//       currentValue[0].toUpperCase() +
+//       currentValue.slice(1, currentValue.length);
+//     return value + ' ' + currentValue;
+//   });
+// console.log(r);
+
+// let p = 'my code best of the best'
+//   .split(' ')
+//   .map(item => item[0].toUpperCase() + item.slice(1, item.length))
+//   .join(' ');
+
+// for (let index = 0; index < 1000000; index++) {
+//   console.log(index);
+// }
+
+// console.log(p);
