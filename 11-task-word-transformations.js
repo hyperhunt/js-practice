@@ -76,35 +76,120 @@
 // filter(), map()
 
 function lowerCase(dataToLow) {
-  // const letterUp = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'.split('');
-  // const letterLow = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'.split('');
-
-  const letterUp = 'АБВ'.split('');
-  const letterLow = 'абв'.split('');
+  const letterUp = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'.split('');
+  const letterLow = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'.split('');
 
   let charMap = {};
   for (let i = 0; i < letterUp.length; i++) {
     charMap[letterUp[i]] = letterLow[i];
   }
-  // console.log(charMap);
-  // console.log(charMap['А']);
 
-  console.log('Data: ' + dataToLow);
-  for (const i of dataToLow) {
-    console.log(typeof i);
-    console.log(typeof charMap[i]);
-    // if (i == charMap[i])
-    //   console.log('i: ' + i + ', letterLow: ' + letterLow[i]);
+  let modStr = '';
+  for (let i = 0; i < dataToLow.length; i++) {
+    let letterAt = dataToLow.charAt(i);
+    if (charMap[letterAt]) {
+      modStr += charMap[letterAt];
+    } else {
+      modStr += letterAt;
+    }
+  }
+  return {
+    get: function () {
+      return modStr;
+    },
+    print: function () {
+      console.log('lowerCase: ' + modStr);
+    },
+  };
+}
+
+// function getData(getLine) {
+//   console.log(getLine);
+// }
+
+function methodOne(subStr) {
+  /**
+   * Входные данные: привет прикол
+   * Выходные данные: 1
+   * Преобразования (выводить не нужно):
+   * в ⇒ к (прикет)
+   * е ⇒ о (прикот)
+   * т ⇒ л (прикол)
+   **/
+
+  let pattern = {
+    в: 'к',
+    е: 'о',
+    т: 'л',
+  };
+
+  checkTransform = '';
+
+  function transformMethodOne(arrStrData, patternData) {
+    // console.log('arr ' + arrStrData);
+    for (let index = 0; index < arrStrData[0].length; index++) {
+      console.log(arrStrData[0][index]);
+    }
   }
 
-  console.log('Result: ');
+  let arrStr = subStr.split(' ');
+  if (arrStr[0].length == arrStr[1].length) {
+    transformMethodOne(arrStr, pattern);
+    checkTransform = 1;
+  } else {
+    checkTransform = 0;
+  }
+  console.log(checkTransform);
 }
 
-function getData(getLine) {
-  console.log(getLine);
-}
+// let line = 'ПрИвЕт пРикОл'.toLowerCase().split(' ');
+let data = 'ПрИвЕт пРиКОл';
+console.log('Input data: ' + data + '\n');
 
-let line = 'ПрИвЕт пРикОл'.toLowerCase().split(' ');
-let line2 = 'ПрИвЕт';
-// getData(line);
-lowerCase(line2);
+methodOne(lowerCase(data).get());
+
+// const { performance } = require('perf_hooks');
+// let timers = {};
+
+// function timeDecorator(f, timer) {
+//   return function () {
+//     let start = performance.now();
+//     let result = f.apply(this, arguments);
+
+//     if (!timers[timer]) timers[timer] = 0;
+//     timers[timer] += performance.now() - start;
+
+//     return result;
+//   };
+// }
+
+// function originalLowerCase(str) {
+//   // console.log('Result 2: ' + str.toLowerCase());
+//   str = str.toLowerCase();
+//   return str;
+// }
+
+// let timeLowerCase = timeDecorator(lowerCase, 'lower');
+// let timeOriginalLowerCase = timeDecorator(originalLowerCase, 'lower');
+
+// timeLowerCase(line2);
+// console.log(timers.lower.toFixed(4) + ' ms');
+
+// timeOriginalLowerCase(line2);
+// console.log(timers.lower.toFixed(4) + ' ms');
+
+// console.log(' # ');
+
+// let t0 = performance.now();
+// for (let index = 0; index < 10; index++) {
+//   lowerCase(line2);
+// }
+// let t1 = performance.now();
+// console.log('lowerCase / 10: ' + ((t1 - t0) / 10).toFixed(4) + ' ms.');
+
+// let m0 = performance.now();
+// for (let index = 0; index < 10; index++) {
+//   originalLowerCase(line2);
+// }
+// let m1 = performance.now();
+// console.log('original / 10: ' + ((m1 - m0) / 10).toFixed(4) + ' ms.');
