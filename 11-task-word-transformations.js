@@ -93,6 +93,8 @@ function lowerCase(dataToLow) {
       modStr += letterAt;
     }
   }
+  console.log('lowerCase: ' + modStr);
+
   return {
     get: function () {
       return modStr;
@@ -107,7 +109,7 @@ function lowerCase(dataToLow) {
 //   console.log(getLine);
 // }
 
-function methodOne(subStr) {
+function methodOne(data) {
   /**
    * Входные данные: привет прикол
    * Выходные данные: 1
@@ -117,37 +119,99 @@ function methodOne(subStr) {
    * т ⇒ л (прикол)
    **/
 
-  let pattern = {
-    в: 'к',
-    е: 'о',
-    т: 'л',
-  };
+  // let pattern = {
+  //   в: 'к',
+  //   е: 'о',
+  //   т: 'л',
+  // };
 
+  // function transformMethodOne(subStringData, patternData) {
+  //   // console.log('arr ' + subStringData);
+  //   let modMethodOne = '';
+  //   for (let index = 0; index < subStringData[0].length; index++) {
+  //     // console.log(patternData[subStringData[0][index]]);
+  //     if (patternData[subStringData[0][index]]) {
+  //       modMethodOne += patternData[subStringData[0][index]] + '1 ';
+  //     } else {lowerCase
+
+  //   // console.log(subStringData[0].charAt(0) == subStringData[1].charAt(0));
+  //   // console.log(subStringData[0][0] == subStringData[1][0]);
+
+  //   if (!subStringData[0][0] == subStringData[1][0])
+  //     // for (let index = 0; index < subStringData[0].length; index++) {
+  //     //   if (subStringData[0][index] == subStringData[1][index]) {
+  //     //     let m = '';
+  //     //     console.log('# ' + pattern[subStringData[0][index]]);
+  //     //     for (let i = 0; i < subStringData[0].length; i++) {
+  //     //       if (subStringData[0][index] == pattern[subStringData[0][index]]) {
+  //     //         m += subStringData[0][index];
+  //     //       }
+  //     //     }
+
+  //     //     result += subStringData[0][index];
+  //     //     console.log(index + ': ' + subStringData[0][index]);
+  //     //   } else {
+  //     //     if (pattern[subStringData[0][index]] == undefined) {
+  //     //       pattern[subStringData[0][index]] = subStringData[1][index];
+  //     //       // result += subStringData[1][index];
+  //     //     }
+  //     //   }
+  //     // }
+  //     console.log(pattern);
+  //   console.log('result: ' + result);
+  // }
   checkTransform = '';
 
-  function transformMethodOne(arrStrData, patternData) {
-    // console.log('arr ' + arrStrData);
-    for (let index = 0; index < arrStrData[0].length; index++) {
-      console.log(arrStrData[0][index]);
-    }
-  }
-
-  let arrStr = subStr.split(' ');
-  if (arrStr[0].length == arrStr[1].length) {
-    transformMethodOne(arrStr, pattern);
+  let subString = data.split(' ');
+  if (subString[0].length == subString[1].length) {
+    transformMethodOne(subString);
     checkTransform = 1;
   } else {
     checkTransform = 0;
   }
+
+  function repeatPattern() {}
+
+  function transformMethodOne(subString) {
+    // console.log('subString: ' + subString);
+    let pattern = {};
+    // subString[0].filter(item => console.log(item));
+    for (let i = 0; i < subString[0].length; i++) {
+      if (subString[0][i] != subString[1][0]) {
+        pattern[subString[0][i]] = subString[1][i];
+        subString[0] = subString[0].map(item =>
+          subString[0][item] == pattern[item]
+            ? (subString[0][item] = pattern[subString[0][item]])
+            : (subString[0][item] = '#'),
+        );
+      }
+    }
+    console.log(pattern);
+    console.log(subString[0]);
+  }
+
   console.log(checkTransform);
 }
 
 // let line = 'ПрИвЕт пРикОл'.toLowerCase().split(' ');
-let data = 'ПрИвЕт пРиКОл';
-console.log('Input data: ' + data + '\n');
+// let data = 'ПрИвЕт пРиКОл';
+let data = 'ПрИвЕВ пРиКОл';
+console.log('Input data: ' + data);
 
-methodOne(lowerCase(data).get());
+methodOne(lowerCase(data).get()); // function, for, self func lowerCase()
 
+// function myRepeat(dataRepeat, patternRepeat) {}
+
+// function myData(data) {
+//   console.log('data.length: ' + data.length);
+//   console.log('data.length - index: ' + data.length - data[0].length);
+//   if (data[0] == 'П') {
+//     // let res = myRepeat(data, pattern);
+//     // console.log(res);
+//   }
+// }
+
+// myData(data);
 // const { performance } = require('perf_hooks');
 // let timers = {};
 

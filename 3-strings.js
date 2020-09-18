@@ -159,3 +159,24 @@
 // }
 
 // console.log(p);
+
+// Search and replace string ot letters
+// let str = 'Мама мыла раму';
+// let replaceWith = 'п';
+// let newStr = str.toLowerCase().split(' ').map(el => {
+//   let idx = el.indexOf('м');
+//   if (idx !== -1) {
+//     el.splice(idx, 1, replaceWith);
+//   }
+// }
+
+// Search - variant 2
+// const str = 'ехали медведи'.split('');
+
+// str.forEach((char, i, arr) => {
+//   console.log(char);
+//   if (char === 'и') {
+//     arr[i] = 'A';
+//   }
+// });
+// console.log(str.join(''));
