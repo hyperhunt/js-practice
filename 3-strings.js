@@ -180,3 +180,8 @@
 //   }
 // });
 // console.log(str.join(''));
+
+let search = 'д';
+let replaceWith = '#';
+let m = 'ааббдд'.split(search).join(replaceWith);
+console.log(m);
