@@ -1,6 +1,3 @@
-const assert = require('assert');
-const replaceAll = require('string.prototype.replaceall');
-
 // let data = 'прпвев ярикол';
 // let data = 'ПрИвЕт пРикОл'.toLowerCase();
 let data = 'ааббдд ддббаа';
@@ -19,19 +16,52 @@ let searchLetter = function (subStrOne, subStrTwo) {
   let pattern = {};
 
   for (let i = 0; i < subStrOne.length; i++) {
+    console.log(`## ${i} property: ${!pattern.hasOwnProperty(subStrOne[i])}`);
     if (!pattern.hasOwnProperty(subStrOne[i])) {
       if (subStrOne[i] != subStrTwo[i]) {
         if (subStrOne.search(subStrTwo[i]) != -1) {
           pattern[subStrTwo[i]] = '#'; //  'д' - '#'
           pattern[subStrOne[i]] = subStrTwo[i]; // 'а' - 'д'
           pattern['#'] = subStrOne[i]; // '#' - 'а'
-          // subStrOne = subStrOne.replace(subStrOne[i], '#');
 
+          subStrOne = subStrOne.split(subStrTwo[i]).join(pattern[subStrTwo[i]]);
+          subStrOne = subStrOne.split(subStrOne[i]).join(pattern[subStrOne[i]]);
+          subStrOne = subStrOne.split('#').join(pattern['#']);
+
+          // subStrOne = subStrOne
+          //   .split(pattern[subStrOne[i]])
+          //   .join(pattern[subStrTwo[i]]);
+
+          // subStrOne = subStrOne.replace(subStrOne[i], pattern[subStrOne[i]]);
+
+          // subStrOne = subStrOne
+          //   .split(pattern[subStrOne[i]])
+          //   .join(pattern[subStrTwo[i]])
+          //   .replace(subStrOne[i], pattern[subStrOne[i]]);
+
+          //
+          // subStrOne = subStrOne
+          //   .split(pattern[subStrOne[i]])
+          //   .join(pattern[subStrTwo[i]]);
+
+          // subStrOne = subStrOne.split(subStrOne[i]).join(subStrTwo[i]);
+          //
+
+          // subStrOne = subStrOne.split(subStrTwo[i]).join(subStrOne[i]);
           // pattern[subStrOne[i]] = subStrTwo[i];
           // subStrOne = subStrOne.replace(
           //   pattern[subStrOne[i]],
           //   pattern[subStrTwo[i]],
           // );
+        } else {
+          // subStrOne = subStrOne
+          //   .split(pattern[subStrOne[i]])
+          //   .join(pattern[subStrTwo[i]]);
+          // subStrOne = subStrOne.split(subStrOne[i]).join(subStrTwo[i]);
+          // console.log(`##${i}: ${subStrOne[i]} ${subStrTwo[i]}`);
+          // subStrOne = subStrOne
+          //   .split(pattern[subStrOne[i]])
+          //   .join(pattern[subStrTwo[i]]);
         }
 
         // subStrOne.search(subStrTwo[i]) == -1
