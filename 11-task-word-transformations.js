@@ -5,7 +5,7 @@
 // Ограничение памяти, МБ 64
 // Общее число попыток отправки 15
 
-// TODO: На вход подается 2 подстроки.
+// На вход подается 2 подстроки.
 // Нужно определить, можно ли превратить первую во вторую,
 // заменяя одни буквы на другие, с учетом следующих правил:
 
@@ -73,132 +73,48 @@
 // они помогут поймать синтаксические ошибки и ошибки выполнения.
 
 // String methods: match(), search()
-// filter(), map()
-
-function lowerCase(dataToLow) {
-  const letterUp = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'.split('');
-  const letterLow = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'.split('');
-
-  let charMap = {};
-  for (let i = 0; i < letterUp.length; i++) {
-    charMap[letterUp[i]] = letterLow[i];
-  }
-
-  let modStr = '';
-  for (let i = 0; i < dataToLow.length; i++) {
-    let letterAt = dataToLow.charAt(i);
-    if (charMap[letterAt]) {
-      modStr += charMap[letterAt];
-    } else {
-      modStr += letterAt;
-    }
-  }
-  console.log('lowerCase: ' + modStr);
-
-  return {
-    get: function () {
-      return modStr;
-    },
-    print: function () {
-      console.log('lowerCase: ' + modStr);
-    },
-  };
-}
+// filter(), map(), split(), slice(), join(), toLowerCase()
+// hasOwnProperty(), length,
 
 // function getData(getLine) {
 //   console.log(getLine);
 // }
 
-function methodOne(data) {
-  /**
-   * Входные данные: привет прикол
-   * Выходные данные: 1
-   * Преобразования (выводить не нужно):
-   * в ⇒ к (прикет)
-   * е ⇒ о (прикот)
-   * т ⇒ л (прикол)
-   **/
+// function transformMethodOne(subStringData, patternData) {
+//   // console.log('arr ' + subStringData);
+//   let modMethodOne = '';
+//   for (let index = 0; index < subStringData[0].length; index++) {
+//     // console.log(patternData[subStringData[0][index]]);
+//     if (patternData[subStringData[0][index]]) {
+//       modMethodOne += patternData[subStringData[0][index]] + '1 ';
+//     } else {lowerCase
 
-  // let pattern = {
-  //   в: 'к',
-  //   е: 'о',
-  //   т: 'л',
-  // };
+//   // console.log(subStringData[0].charAt(0) == subStringData[1].charAt(0));
+//   // console.log(subStringData[0][0] == subStringData[1][0]);
 
-  // function transformMethodOne(subStringData, patternData) {
-  //   // console.log('arr ' + subStringData);
-  //   let modMethodOne = '';
-  //   for (let index = 0; index < subStringData[0].length; index++) {
-  //     // console.log(patternData[subStringData[0][index]]);
-  //     if (patternData[subStringData[0][index]]) {
-  //       modMethodOne += patternData[subStringData[0][index]] + '1 ';
-  //     } else {lowerCase
+//   if (!subStringData[0][0] == subStringData[1][0])
+//     // for (let index = 0; index < subStringData[0].length; index++) {
+//     //   if (subStringData[0][index] == subStringData[1][index]) {
+//     //     let m = '';
+//     //     console.log('# ' + pattern[subStringData[0][index]]);
+//     //     for (let i = 0; i < subStringData[0].length; i++) {
+//     //       if (subStringData[0][index] == pattern[subStringData[0][index]]) {
+//     //         m += subStringData[0][index];
+//     //       }
+//     //     }
 
-  //   // console.log(subStringData[0].charAt(0) == subStringData[1].charAt(0));
-  //   // console.log(subStringData[0][0] == subStringData[1][0]);
-
-  //   if (!subStringData[0][0] == subStringData[1][0])
-  //     // for (let index = 0; index < subStringData[0].length; index++) {
-  //     //   if (subStringData[0][index] == subStringData[1][index]) {
-  //     //     let m = '';
-  //     //     console.log('# ' + pattern[subStringData[0][index]]);
-  //     //     for (let i = 0; i < subStringData[0].length; i++) {
-  //     //       if (subStringData[0][index] == pattern[subStringData[0][index]]) {
-  //     //         m += subStringData[0][index];
-  //     //       }
-  //     //     }
-
-  //     //     result += subStringData[0][index];
-  //     //     console.log(index + ': ' + subStringData[0][index]);
-  //     //   } else {
-  //     //     if (pattern[subStringData[0][index]] == undefined) {
-  //     //       pattern[subStringData[0][index]] = subStringData[1][index];
-  //     //       // result += subStringData[1][index];
-  //     //     }
-  //     //   }
-  //     // }
-  //     console.log(pattern);
-  //   console.log('result: ' + result);
-  // }
-  checkTransform = '';
-
-  let subString = data.split(' ');
-  if (subString[0].length == subString[1].length) {
-    transformMethodOne(subString);
-    checkTransform = 1;
-  } else {
-    checkTransform = 0;
-  }
-
-  function repeatPattern() {}
-
-  function transformMethodOne(subString) {
-    // console.log('subString: ' + subString);
-    let pattern = {};
-    // subString[0].filter(item => console.log(item));
-    for (let i = 0; i < subString[0].length; i++) {
-      if (subString[0][i] != subString[1][0]) {
-        pattern[subString[0][i]] = subString[1][i];
-        subString[0] = subString[0].map(item =>
-          subString[0][item] == pattern[item]
-            ? (subString[0][item] = pattern[subString[0][item]])
-            : (subString[0][item] = '#'),
-        );
-      }
-    }
-    console.log(pattern);
-    console.log(subString[0]);
-  }
-
-  console.log(checkTransform);
-}
-
-// let line = 'ПрИвЕт пРикОл'.toLowerCase().split(' ');
-// let data = 'ПрИвЕт пРиКОл';
-let data = 'ПрИвЕВ пРиКОл';
-console.log('Input data: ' + data);
-
-methodOne(lowerCase(data).get()); // function, for, self func lowerCase()
+//     //     result += subStringData[0][index];
+//     //     console.log(index + ': ' + subStringData[0][index]);
+//     //   } else {
+//     //     if (pattern[subStringData[0][index]] == undefined) {
+//     //       pattern[subStringData[0][index]] = subStringData[1][index];
+//     //       // result += subStringData[1][index];
+//     //     }
+//     //   }
+//     // }
+//     console.log(pattern);
+//   console.log('result: ' + result);
+// }
 
 // function myRepeat(dataRepeat, patternRepeat) {}
 
@@ -257,3 +173,132 @@ methodOne(lowerCase(data).get()); // function, for, self func lowerCase()
 // }
 // let m1 = performance.now();
 // console.log('original / 10: ' + ((m1 - m0) / 10).toFixed(4) + ' ms.');
+
+// Преобразование строки из Верхнего регистра в Нижний регистр
+// Вместо toLowerCase() интересно было попробовать написать свою реализацию и замерить скорость работы
+function lowerCase(dataToLow) {
+  const letterUp = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'.split('');
+  const letterLow = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'.split('');
+
+  // Получение Паттерна (ключ-значение) алфавита
+  let charMap = {};
+  for (let i = 0; i < letterUp.length; i++) {
+    charMap[letterUp[i]] = letterLow[i];
+  }
+
+  // Преобразование из Верхнего регистар в Нижний
+  let modStr = '';
+  for (let i = 0; i < dataToLow.length; i++) {
+    let letterAt = dataToLow.charAt(i);
+    if (charMap[letterAt]) {
+      modStr += charMap[letterAt];
+    } else {
+      modStr += letterAt;
+    }
+  }
+  // console.log('lowerCase: ' + modStr);
+
+  return {
+    get: function () {
+      // Функция для возвращения результата
+      return modStr;
+    },
+    print: function () {
+      // Функция для печати результа работы lowerCase в Терминал
+      console.log('lowerCase: ' + modStr);
+    },
+  };
+}
+
+// Слияние дублей слов
+function mergeWords(data, subStrTwo) {
+  let strCut = {};
+
+  for (let i = 0; i < data.length; i += subStrTwo.length) {
+    strCut[i] = data.slice(i, i + subStrTwo.length);
+  }
+
+  let merge = '';
+  for (const key in strCut) {
+    if (strCut.hasOwnProperty(key)) {
+      if (merge != strCut[key]) {
+        merge += strCut[key];
+      }
+    }
+  }
+  return merge;
+}
+
+// Функция выражение, в которое производится сравнение срок по длинне, производится замена литералов по паттерну.
+let replaceLetter = function (subStrOne, subStrTwo) {
+  let convertStatus = ''; // Статус конвертации, если длинна не равна - 0, если конвертировать не возможно - 0, иначе 1.
+  let pattern = {}; // Объект для генерации ключей замены литералов
+
+  // Проверка подстрок на равенство по количеству элементов
+  subStrOne.length == subStrTwo.length
+    ? (convertStatus = 1)
+    : (convertStatus = 0);
+
+  // Если длинна подстрок равна, тогда выполняем замену литералов
+  if (convertStatus) {
+    for (let i = 0; i < subStrOne.length; i++) {
+      // console.log(`## ${i} property: ${!pattern.hasOwnProperty(subStrOne[i])}`); // Проверка объекта на наличие ключа
+      if (!pattern.hasOwnProperty(subStrOne[i])) {
+        // Проверка на наличие паттерна
+        if (subStrOne[i] != subStrTwo[i]) {
+          // Если символ строки 1 не равен символу строки 2
+          // Если находим литерал строки 2 в строке 1, тогда создаем дополнительную пару в Паттерне для сохранения и змены во всей строке
+          if (!subStrOne.search(subStrTwo[i]) != -1) {
+            pattern[subStrTwo[i]] = '#'; //  'д' - '#'
+            pattern[subStrOne[i]] = subStrTwo[i]; // 'а' - 'д'
+            pattern['#'] = subStrOne[i]; // '#' - 'а'
+
+            // Замена найденного литерала во всей строке 1
+            subStrOne = subStrOne
+              .split(subStrTwo[i])
+              .join(pattern[subStrTwo[i]]);
+
+            // Замена первой парю ключей
+            subStrOne = subStrOne.replace(subStrOne[i], pattern[subStrOne[i]]);
+          } else {
+            // console.log(`## ${(subStrOne[i], pattern['#'])}`);
+            // Если в строке 1 не было найдено символов из строки 2, осуществляем просто замену литералов
+            subStrOne = subStrOne.replace(subStrOne[i], pattern['#']);
+          }
+        }
+      } else {
+        // Замена ключей в случаи, когда литерал строки 1 и строки 2 равны
+        if (subStrOne[i] == subStrTwo[i]) {
+          subStrOne = subStrOne.replace(subStrOne[i], subStrTwo[i]);
+        } else {
+          subStrOne = subStrOne.replace(subStrOne[i], pattern[subStrOne[i]]);
+        }
+      }
+    }
+    // console.log(pattern); // Вывод содержимого Паттерна (ключ-значение) для поиска ошибок
+    convertStatus = subStrOne == subStrTwo ? 1 : 0;
+    // console.log(
+    //   `convertStatus: ${subStrOne} ? ${subStrTwo} == ${convertStatus}`,
+    // );
+  }
+
+  return convertStatus;
+};
+
+// Получение строки из Терминала
+const readline = require('readline');
+const rl = readline.createInterface(process.stdin, process.stdout);
+rl.on('line', data => {
+  data = lowerCase(String(data)).get();
+  // Получение подстрок.
+  let subStrOne = data.slice(0, data.indexOf(' '));
+  // console.log('#' + subStrOne + '#');
+  let subStrTwo = data.slice(data.indexOf(' ') + 1);
+  // console.log('#' + subStrTwo + '#');
+
+  // Merge duplicates
+  subStrOne = mergeWords(subStrOne, subStrTwo);
+  console.log(`${String(replaceLetter(subStrOne, subStrTwo))}`);
+  rl.close();
+  return;
+}).on('close', () => process.exit(0));

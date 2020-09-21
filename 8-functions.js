@@ -115,7 +115,6 @@
 // }
 
 // // let res = multiply(1, 2, 3);
-// let res = multiply(2, 3, 10);
 // console.log(res);
 
 // // TODO: Practical task 2: Create function whuch take string and return reverse string.
