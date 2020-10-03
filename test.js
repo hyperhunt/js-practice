@@ -42,28 +42,175 @@
 // arr = arr.filter(function (item, pos) {
 //   return arr.indexOf(item) == pos;
 // });
-let data = 'ПриветПриветПриветПриветПривет'; // ?
-let subStrTwo = 'прикол';
+// let data = 'ПриветПриветПриветПриветПривет'; // ?
+// let subStrTwo = 'прикол';
 
-function mergeWords(data, subStrTwo) {
-  let strCut = {};
+// function mergeWords(data, subStrTwo) {
+//   let strCut = {};
 
-  for (let i = 0; i < data.length; i += subStrTwo.length) {
-    strCut[i] = data.slice(i, i + subStrTwo.length);
-  }
+//   for (let i = 0; i < data.length; i += subStrTwo.length) {
+//     strCut[i] = data.slice(i, i + subStrTwo.length);
+//   }
 
-  let merge = '';
-  for (const key in strCut) {
-    if (strCut.hasOwnProperty(key)) {
-      if (merge != strCut[key]) {
-        merge += strCut[key];
-      }
-    }
-  }
-  return merge;
+//   let merge = '';
+//   for (const key in strCut) {
+//     if (strCut.hasOwnProperty(key)) {
+//       if (merge != strCut[key]) {
+//         merge += strCut[key];
+//       }
+//     }
+//   }
+//   return merge;
+// }
+
+// let r = mergeWords(data, subStrTwo)
+// console.log(r);
+
+// console.log('#');
+
+// let user = {
+//   alex: {
+//     dayx: 22,
+//   },
+// };
+// function happyBirthday() {
+//   return {
+//     print: function () {
+//       console.log('Happy Birthday, Alex!');
+//     },
+//     next: function () {
+//       console.log('Comming soon...');
+//     },
+//   };
+// }
+
+// user.alex.dayx == 22 ? happyBirthday().print() : happyBirthday().next();
+
+// function outer() {
+//   var x = 0;
+//   function inner() {
+//     x++;
+//     console.log(x);
+//   }
+//   return inner;
+// }
+
+// let func = outer();
+
+// func();
+// func();
+// func();
+
+// let array = [1, 2, 3, 4, 5];
+
+// console.log(
+//   '[After .reduce()]: ',
+//   array.reduce((acc, item) => acc * item),
+// );
+
+// console.log(array);
+
+let minValue = [
+  2,
+  -24,
+  13,
+  -11,
+  16,
+  -12,
+  -16,
+  24,
+  13,
+  -38,
+  19,
+  -16,
+  19,
+  3,
+  2,
+  32,
+  0,
+  -10,
+  -19,
+  -27,
+];
+
+let maxValue = [
+  34,
+  26,
+  21,
+  -8,
+  10,
+  39,
+  -14,
+  20,
+  20,
+  27,
+  1,
+  1,
+  27,
+  -15,
+  14,
+  -8,
+  20,
+  17,
+  5,
+  -36,
+];
+
+let avgValue = [
+  -39,
+  30,
+  -32,
+  -9,
+  3,
+  -2,
+  -11,
+  -4,
+  -32,
+  39,
+  0,
+  -14,
+  7,
+  20,
+  -12,
+  22,
+  -23,
+  19,
+  0,
+  2,
+];
+
+function min(array) {
+  return !array.length ? 0 : Math.min.apply(this, array);
 }
 
-let r = mergeWords(data, subStrTwo)
-console.log(r);
+function max(array) {
+  return !array.length
+    ? 0
+    : array.reduce((acc, cur) => {
+        return acc > cur ? acc : cur;
+      });
+}
 
-console.log('#');
+function avg(array) {
+  // return !array ? 0 : array.reduce((a, b) => a + b) / array.length;
+  // return !array ? 0 : eval(array.join('+')) / array.length; // eval is evil
+  return !array.length
+    ? 0
+    : (function () {
+        let res = 0;
+        for (const i of array) {
+          res += i;
+        }
+        return res;
+      })(array) / array.length;
+}
+
+let r = '';
+
+console.log('2.5\n-1.8\n');
+r = avg([]);
+console.log(r);
+r = avg([1, 2, 3, 4]);
+console.log(r);
+r = avg(avgValue);
+console.log(r);
