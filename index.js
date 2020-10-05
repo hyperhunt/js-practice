@@ -1,14 +1,14 @@
 "use strict";
 
-let colors = ["Red", "Green", "Blue"];
-console.log(colors.length);
-console.log(colors[0]);
+// let colors = ["Red", "Green", "Blue"];
+// console.log(colors.length);
+// console.log(colors[0]);
 
-colors.forEach((item, index) => {
-  console.log(item, index);
-});
+// colors.forEach((item, index) => {
+  // console.log(item, index);
+// });
 
-colors.indexOf("\nBlue");
+// colors.indexOf("\nBlue");
 
 // var human = {};
 // human.name = "Tony";
@@ -396,3 +396,32 @@ colors.indexOf("\nBlue");
 // person.goGo = true
 // console.log(person)
 // console.log(person.goGo)
+
+const a = [
+  '',
+  'one ',
+  'two ',
+  'three ',
+  'four ',
+  'five ',
+  'six ',
+  'seven ',
+  'eight ',
+  'nine ',
+  'ten ',
+  'eleven ',
+  'twelve ',
+  'thirteen ',
+  'fourteen ',
+  'fifteen ',
+  'sixteen ',
+  'seventeen ',
+  'eighteen ',
+  'nineteen ',
+];
+
+const getLT20 = n => a[Number(n)];
+
+let n = getLT20(9)
+console.log(n)
+console.log(a[1])

@@ -110,107 +110,113 @@
 
 // console.log(array);
 
-let minValue = [
-  2,
-  -24,
-  13,
-  -11,
-  16,
-  -12,
-  -16,
-  24,
-  13,
-  -38,
-  19,
-  -16,
-  19,
-  3,
-  2,
-  32,
-  0,
-  -10,
-  -19,
-  -27,
-];
+// let minValue = [
+//   2,
+//   -24,
+//   13,
+//   -11,
+//   16,
+//   -12,
+//   -16,
+//   24,
+//   13,
+//   -38,
+//   19,
+//   -16,
+//   19,
+//   3,
+//   2,
+//   32,
+//   0,
+//   -10,
+//   -19,
+//   -27,
+// ];
 
-let maxValue = [
-  34,
-  26,
-  21,
-  -8,
-  10,
-  39,
-  -14,
-  20,
-  20,
-  27,
-  1,
-  1,
-  27,
-  -15,
-  14,
-  -8,
-  20,
-  17,
-  5,
-  -36,
-];
+// let maxValue = [
+//   34,
+//   26,
+//   21,
+//   -8,
+//   10,
+//   39,
+//   -14,
+//   20,
+//   20,
+//   27,
+//   1,
+//   1,
+//   27,
+//   -15,
+//   14,
+//   -8,
+//   20,
+//   17,
+//   5,
+//   -36,
+// ];
 
-let avgValue = [
-  -39,
-  30,
-  -32,
-  -9,
-  3,
-  -2,
-  -11,
-  -4,
-  -32,
-  39,
-  0,
-  -14,
-  7,
-  20,
-  -12,
-  22,
-  -23,
-  19,
-  0,
-  2,
-];
+// let avgValue = [
+//   -39,
+//   30,
+//   -32,
+//   -9,
+//   3,
+//   -2,
+//   -11,
+//   -4,
+//   -32,
+//   39,
+//   0,
+//   -14,
+//   7,
+//   20,
+//   -12,
+//   22,
+//   -23,
+//   19,
+//   0,
+//   2,
+// ];
 
-function min(array) {
-  return !array.length ? 0 : Math.min.apply(this, array);
-}
+// function min(array) {
+//   return !array.length ? 0 : Math.min.apply(this, array);
+// }
 
-function max(array) {
-  return !array.length
-    ? 0
-    : array.reduce((acc, cur) => {
-        return acc > cur ? acc : cur;
-      });
-}
+// function max(array) {
+//   return !array.length
+//     ? 0
+//     : array.reduce((acc, cur) => {
+//         return acc > cur ? acc : cur;
+//       });
+// }
 
-function avg(array) {
-  // return !array ? 0 : array.reduce((a, b) => a + b) / array.length;
-  // return !array ? 0 : eval(array.join('+')) / array.length; // eval is evil
-  return !array.length
-    ? 0
-    : (function () {
-        let res = 0;
-        for (const i of array) {
-          res += i;
-        }
-        return res;
-      })(array) / array.length;
-}
+// function avg(array) {
+//   // return !array ? 0 : array.reduce((a, b) => a + b) / array.length;
+//   // return !array ? 0 : eval(array.join('+')) / array.length; // eval is evil
+//   return !Array.isArray(array) || !array.length
+//     ? 0
+//     : (function () {
+//         let res = 0;
+//         for (const i in array) {
+//           res += array[i];
+//         }
+//         return res;
+//       })(array) / array.length;
+// }
 
-let r = '';
+// let r = '';
 
-console.log('2.5\n-1.8\n');
-r = avg([]);
-console.log(r);
-r = avg([1, 2, 3, 4]);
-console.log(r);
-r = avg(avgValue);
-console.log(r);
+// console.log('2.5\n-1.8\n');
+// r = avg();
+// console.log(r);
+// r = avg([]);
+// console.log(r);
+// r = avg([1, 2, 3, 4]);
+// console.log(r);
+// r = avg(avgValue);
+// console.log(r);
+
+/* eslint-disable eqeqeq */
+
+
