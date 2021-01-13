@@ -100,3 +100,65 @@ console.log(div.className) // name all classes
 
 // console.dir(div)
 console.log(div.setAttribute('id', 'myId'))
+
+
+// Манипуляции с DOM
+
+const title = document.title
+console.log(title)
+document.querySelector('h1').textContent = title
+
+
+const subjectTitle = document.querySelector('h1')
+console.log(subjectTitle.outerHTML)
+// subjectTitle.innerHTML = '<span>'+title+'</span>'
+// subjectTitle.insertAdjacentHTML('beforebegin', '<h2>titile h2</h2>')
+
+// const span = subjectTitle.querySelector('span')
+// console.log(span.outerHTML)
+// subjectTitle.innerHTML += '<span>new text 2</span>'
+// console.log(document.querySelector('h1').outerHTML);
+
+// span.textContent = 'edit text'
+// console.log(document.querySelector('h1').outerHTML);
+// console.log(span.outerHTML);
+
+
+// Работа с узлами
+
+// Create element
+const span = document.createElement('span')
+span.textContent = '{add text span}'
+span.classList.add('mySpanClass')
+console.log(span.outerHTML)
+
+console.log()
+console.log(subjectTitle.outerHTML)
+subjectTitle.appendChild(span)
+console.log(subjectTitle.outerHTML)
+
+// Если appendChild использовать повторно, то элемент удаляется из текущего узла и добавляет в новый
+// console.log(document.querySelector('div').outerHTML)
+// div.appendChild(span)
+// console.log(document.querySelector('div').outerHTML)
+
+// Дом операции являются синхронными
+// Добавить все элементы, затем только добавить фрагмент в разметку
+const fragment = document.createDocumentFragment()
+const colors = ['red', 'green']
+colors.forEach((color) => {
+    const item = document.createElement('div')
+    div.classList.add(`bg-${color}`)
+    item.textContent = color
+    item.style.background = color
+    fragment.appendChild(item)
+})
+
+// div.firstChild.appendChild(fragment)
+document.body.appendChild(fragment)
+
+// Delete elements in DOM
+// titile.remove()
+//  Полифилы - скриты, добавляют функционал не поддерживаемых элементов для старых браузеров
+// subjectTitle.parentElement.removeChild(subjectTitle)
+subjectTitle.childNodes[1].parentElement.removeChild(span) // delete tag <span>
