@@ -22,9 +22,36 @@ const btn = document.querySelector('button')
 //     console.log(e)
 // })
 
-const link = document.querySelector('a')
-console.log(link.outerHTML);
-link.addEventListener('click', function(e) {
-    e.preventDefault()
-    console.log('click link');
+// const link = document.querySelector('a')
+// console.log(link.outerHTML);
+// link.addEventListener('click', function(e) {
+//     e.preventDefault()
+//     console.log('click link');
+// })
+
+
+// btn.addEventListener('click', e => {
+//     console.log(e);
+// })
+
+btn.addEventListener('click', e => {
+    console.log(this)
+    console.log(e);
 })
+
+btn.addEventListener('click', function() {
+    console.log(this)
+    console.log('click text 2')
+})
+
+function deleteElement(e) {
+    e.preventDefault()
+    console.log(this)
+    console.log('click link');
+}
+
+const link = document.querySelector('a')
+// console.log(link.outerHTML);
+link.addEventListener('click', deleteElement)
+
+// link.removeEventListener('click', deleteElement)
