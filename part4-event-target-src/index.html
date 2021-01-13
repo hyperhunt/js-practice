@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="#" type="image/x-icon">
+  <title>DOM: Event Target</title>
+    <style>
+      * {
+        margin: auto;
+        color: #C0C0C0;
+      }
+      body {
+        background: #272c34;
+      }
+      div.wrap {
+        color: #989898;
+        padding: 10px;
+        background-color: #98C379;
+      }
+      div {
+        background-color: #675A89;
+        padding: 20px;
+      }
+      .eventLayer {
+        background-color: #444957;
+      }
+    </style>
+</head>
+<body>
+ 
+  <h1>Events</h1>
+  <!-- Body container
+  <div class="wrap">
+    Div container
+    <button class="btn">Click</button>
+  </div> -->
+  <div style="background-color: #675A89">
+    <div style="background-color: #6D5F90">
+      <div style="background-color: #726496">
+        <div style="background-color: #7A6B9F">
+          <div style="background-color: #8776AB">The event move through the DOM tree.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
