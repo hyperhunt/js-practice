@@ -18,7 +18,7 @@ const TodoList = {
   const app = Vue.createApp(TodoList)
   
   app.component('todo-item', {
-    props: ['todo'],
+    props: ['todos'],
     template: `<li>{{ todo.title }}</li>`
   })
   
