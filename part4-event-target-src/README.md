@@ -1,1 +1,1 @@
-![plot](./event-target.gif)
+![Event target](event-target.gif "Event target")
