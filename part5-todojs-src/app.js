@@ -46,7 +46,6 @@ const tasks = [
   const form = document.forms['addTask'];
   const inputTitle = form.elements['title'];
   const inputBody = form.elements['body'];
-  console.log(inputTitle, inputBody);
 
   renderAllTask(objOfTasks);
   form.addEventListener('submit', onFormSubmitHandler);
